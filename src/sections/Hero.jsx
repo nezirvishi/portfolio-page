@@ -1,5 +1,5 @@
 import React from 'react'
-import { words } from '../constants/Index'
+import { words } from '../constants/index'
 
 const Hero = () => {
     return (
