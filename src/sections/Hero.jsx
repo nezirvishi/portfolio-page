@@ -1,11 +1,11 @@
 import React from 'react'
-import { words } from '../constants/index'
+import { words } from '../constants/index.js'
 
 const Hero = () => {
     return (
         <section id="hero" className="relative overflow-hidden">
             <div className='absolute top-0 left-0 z-10'>
-                <img src="/images/bg.png" alt="background" />
+                <img src="images/bg.png" alt="background" />
             </div>
 
             <div className='hero-layout'>
@@ -15,7 +15,7 @@ const Hero = () => {
                         <div className='hero-text'>
                             <h1>
                                 Let's turn your
-                                <span className='slide'>
+                                <span className="slide">
                                     <span className='wrapper'>
                                         {words.map((word) => (
                                             <span key={word.text} className='flex items-center md:gap-3 gap-1 pb-2'>
