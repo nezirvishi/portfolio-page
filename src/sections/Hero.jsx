@@ -1,5 +1,7 @@
 import React from 'react'
 import { words } from '../constants/index.js'
+import Button from '../components/Button.jsx'
+import HeroExperience from '../components/HeroModels/HeroExperience.jsx'
 
 const Hero = () => {
     return (
@@ -14,7 +16,7 @@ const Hero = () => {
                     <div className='flex flex-col gap-7'>
                         <div className='hero-text'>
                             <h1>
-                                Let's turn your
+                                Let's shape your
                                 <span className="slide">
                                     <span className='wrapper'>
                                         {words.map((word) => (
@@ -28,15 +30,26 @@ const Hero = () => {
                                             </span>
                                         ))}
                                     </span>
-
                                 </span>
                             </h1>
-                            <h1>into real projects</h1>
-                            <h1>that deliver results</h1>
+                            into value driven digital solutions
                         </div>
+                        <p className='text-white-50 md:text-xl relative z-10 pointer-events-none'>
+                            Hi, I'm Nezir, a Business IT Specialist who loves building modern web apps and intuitive UI/UX prototypes.
+                        </p>
+                        <Button
+                            className='md:w-80 md:h-16 w-60 h-12'
+                            id="button"
+                            text="Projects"
+                        />
                     </div>
                 </header>
                 {/*RIGHT} */}
+                <figure>
+                    <div className='hero-3d-layout'>
+                        <HeroExperience />
+                    </div>
+                </figure>
 
             </div>
 
