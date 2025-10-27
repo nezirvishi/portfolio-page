@@ -17,8 +17,8 @@ const HeroExperience = () => {
                 enableZoom={!isTablet}
                 maxDistance={100}
                 minDistance={0}
-                minPolarAngle={Math.PI / 5}
-                maxPolarAngle={Math.PI / 2}
+                minPolarAngle={0}
+                maxPolarAngle={Math.PI - 0.05}
 
             />
             <group
