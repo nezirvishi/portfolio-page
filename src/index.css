@@ -101,7 +101,7 @@ section {
     }
 
     .hero-3d-layout {
-        @apply xl:w-[70%] w-full h-full min-h-[50vh] absolute xl:-top-20 top-24 xl:-right-20 right-0;
+        @apply xl:w-[60%] w-full h-full min-h-[50vh] absolute xl:-top-20 top-24 xl:-right-20 right-0;
     }
 
     .navbar {
@@ -156,10 +156,10 @@ section {
         }
     }
 
-    .app-showcase {
+    .app-work {
         @apply w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center;
 
-        .showcaselayout {
+        .worklayout {
             @apply flex xl:flex-row flex-col gap-10 justify-between;
         }
 
