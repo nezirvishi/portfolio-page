@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { navLinks } from '../constants'
-import { div } from 'three/tsl'
 
 const Navbar = () => {
+
     const [scrolled, setScrolled] = useState(false)
+
     useEffect(() => {
         const handleScroll = () => {
             const isScrolled = window.scrollY > 10;
-            setScrolled(true)
+            setScrolled(isScrolled)
         }
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, [])
-
-
 
     return (
         <header className={`navbar ${scrolled ? 'scrolled' : 'not-scrolled'}`}>
@@ -39,7 +38,6 @@ const Navbar = () => {
                     <div className='inner'>
                         <span>Contact me</span>
                     </div>
-
                 </a>
             </div>
         </header>

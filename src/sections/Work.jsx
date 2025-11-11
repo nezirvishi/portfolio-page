@@ -52,7 +52,6 @@ const Work = () => {
                             <h2>Pitaya Webshop</h2>
                             <h3>2020</h3>
                         </div>
-
                         <div ref={project3Ref} className='project'>
                             <div className='image-wrapper'>
                                 <img src="images/project_case.png" alt="Case" />
@@ -60,13 +59,10 @@ const Work = () => {
                             <h2>ERP Case Study</h2>
                             <h3>2021</h3>
                         </div>
-
-
                     </div>
                 </div>
             </div>
-        </section>
-    )
+        </section>)
 }
 
 export default Work
