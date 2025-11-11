@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { navLinks } from '../../constants'
+import { navLinks } from '../constants'
 import { div } from 'three/tsl'
 
 const Navbar = () => {

@@ -1,5 +1,6 @@
-import Navbar from "./components/HeroModels/Navbar"
+import Navbar from "./components/Navbar"
 import Hero from "./sections/Hero"
+import Experience from "./sections/Experience"
 import Work from "./sections/Work"
 
 const App = () => {
@@ -8,6 +9,8 @@ const App = () => {
             <Navbar />
             <Hero />
             <Work />
+            <Experience />
+
         </>
 
     )
