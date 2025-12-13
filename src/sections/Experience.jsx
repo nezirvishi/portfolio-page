@@ -101,7 +101,6 @@ const Experience = () => {
                     </div>
                 </div>
             </div>
-            <div className='mb-200'></div>  {/*temporary, so that the scroll function works */}
         </section>
     )
 }

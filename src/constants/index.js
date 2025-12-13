@@ -1,5 +1,3 @@
-import { label } from "three/tsl";
-
 export const words = [
     { text: "Ideas", imgPath: "images/ideas.svg" },
     { text: "Concepts", imgPath: "images/concepts.svg" },
@@ -36,6 +34,20 @@ export const navLinks = [
     },
 ];
 
+export const logoIconsList = [
+    { name: "React", imgPath: "images/skills_logos/react.svg" },
+    { name: "JavaScript", imgPath: "images/skills_logos/javascript.svg" },
+    { name: "Tailwind CSS", imgPath: "images/skills_logos/tailwindcss.svg" },
+    { name: "GSAP", imgPath: "images/skills_logos/gsap.svg" },
+    { name: "Three.js", imgPath: "images/skills_logos/threedotjs.svg" },
+    { name: "Vite", imgPath: "images/skills_logos/vite.svg" },
+    { name: "Python", imgPath: "images/skills_logos/python.svg" },
+    { name: "Solidity", imgPath: "images/skills_logos/solidity.svg" },
+    { name: "GitHub", imgPath: "images/skills_logos/github.svg" },
+    { name: "Figma", imgPath: "images/skills_logos/figma.svg" },
+    { name: "SAP", imgPath: "images/skills_logos/sap.svg" },
+];
+
 export const expCards = [
     {
         description: [
@@ -64,7 +76,7 @@ export const expCards = [
     },
     {
         description: [
-            "I help turn ideas into functional digital products. \n Whether its for an app, SaaS platform, or internal tool — I design the experience and user interface to be intuitive, modern, and purposeful.",
+            "I help turn ideas into functional digital products. \n Whether it's for an app, SaaS platform, or internal tool, I design the experience and user interface to be intuitive, modern, and purposeful.",
         ],
         logoPath: "images/logo3.png",
         title: "03 - UX/UI & Product Design",
