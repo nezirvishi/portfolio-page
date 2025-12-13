@@ -243,6 +243,10 @@ section {
         animation: marquee var(--marquee-duration, 55s) linear infinite;
     }
 
+    .marquee-box-reverse {
+        animation-direction: reverse;
+    }
+
     .marquee-fade {
         -webkit-mask-image: linear-gradient(to right,
                 rgba(0, 0, 0, 0),

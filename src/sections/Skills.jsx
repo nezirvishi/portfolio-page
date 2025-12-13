@@ -19,8 +19,12 @@ const LogoIcon = ({ icon }) => {
     )
 }
 
+const loopIcons = (items) => [...items, ...items]
+
 const Skills = () => {
-    const icons = [...logoIconsList, ...logoIconsList]
+    const desktopIcons = loopIcons(logoIconsList)
+    const mobileIconsRowOne = loopIcons(logoIconsList.filter((_, index) => index % 2 === 0))
+    const mobileIconsRowTwo = loopIcons(logoIconsList.filter((_, index) => index % 2 === 1))
 
     return (
         <section id="skills" className="w-full md:mt-40 mt-20 section-padding xl:px-0">
@@ -33,11 +37,29 @@ const Skills = () => {
                 </p>
 
                 <div className="md:my-20 my-10 relative">
-                    <div className="marquee marquee-fade py-6 md:py-8" style={{ '--marquee-duration': '85s' }}>
+                    <div className="marquee marquee-fade py-6 md:py-8 hidden md:block" style={{ '--marquee-duration': '85s' }}>
                         <div className="marquee-box md:gap-18 gap-14">
-                            {icons.map((icon, index) => (
+                            {desktopIcons.map((icon, index) => (
                                 <LogoIcon key={`${icon.name}-${index}`} icon={icon} />
                             ))}
+                        </div>
+                    </div>
+
+                    <div className="md:hidden space-y-4">
+                        <div className="marquee marquee-fade py-4" style={{ '--marquee-duration': '55s' }}>
+                            <div className="marquee-box gap-14">
+                                {mobileIconsRowOne.map((icon, index) => (
+                                    <LogoIcon key={`${icon.name}-${index}`} icon={icon} />
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="marquee marquee-fade py-4" style={{ '--marquee-duration': '55s' }}>
+                            <div className="marquee-box gap-14 marquee-box-reverse">
+                                {mobileIconsRowTwo.map((icon, index) => (
+                                    <LogoIcon key={`${icon.name}-${index}`} icon={icon} />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
