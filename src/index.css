@@ -380,6 +380,7 @@ section {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    pointer-events: none;
     border-radius: 12px;
     border: 2px solid transparent;
     background: var(--gradient);
