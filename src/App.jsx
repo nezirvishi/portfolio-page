@@ -4,6 +4,7 @@ import Experience from "./sections/Experience"
 import Skills from "./sections/Skills"
 import Work from "./sections/Work"
 import Contact from "./sections/Contact"
+import GitHubSkyline from "./sections/GitHubSkyline"
 
 const App = () => {
     return (
@@ -13,6 +14,7 @@ const App = () => {
             <Work />
             <Experience />
             <Skills />
+            <GitHubSkyline />
             <Contact />
         </>
 

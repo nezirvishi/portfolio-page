@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "generate:skyline": "node scripts/generate-github-skyline.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

@@ -32,6 +32,11 @@ export const navLinks = [
         name: "Skills",
         link: "#skills",
     },
+
+    {
+        name: "GitHub",
+        link: "#github",
+    },
 ];
 
 export const logoIconsList = [
