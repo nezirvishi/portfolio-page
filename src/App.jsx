@@ -5,6 +5,7 @@ import Skills from "./sections/Skills"
 import Work from "./sections/Work"
 import Contact from "./sections/Contact"
 import GitHubSkyline from "./sections/GitHubSkyline"
+import Footer from "./components/Footer"
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
             <Skills />
             <GitHubSkyline />
             <Contact />
+            <Footer />
         </>
 
     )
