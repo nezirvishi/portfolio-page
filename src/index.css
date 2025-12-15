@@ -19,13 +19,11 @@ section {
 }
 
 @theme {
-    --font-sans: "Mona Sans", sans-serif;
     --color-white-50: #d9ecff;
     --color-black-50: #1c1c21;
     --color-black-100: #0e0e10;
     --color-black-200: #282732;
     --color-blue-50: #839cb5;
-    --color-blue-100: #2d2d38;
 }
 
 @layer components {
@@ -138,10 +136,6 @@ section {
 
             .text-content {
                 @apply space-y-5 mt-5;
-
-                .badges {
-                    @apply flex gap-2 mb-4;
-                }
 
                 h2 {
                     @apply text-2xl md:text-3xl lg:text-4xl font-bold;
@@ -369,7 +363,7 @@ section {
     top: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    border-radius: 12px;
+    border-radius: inherit;
     border: 2px solid transparent;
     background: var(--gradient);
     background-attachment: fixed;

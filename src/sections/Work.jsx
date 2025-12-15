@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import GlowCard from '../components/GlowCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,9 +33,9 @@ const Work = () => {
                 <div className='worklayout'>
                     {/*LEFT SIDE */}
                     <div ref={project1Ref} className='first-project-wrapper'>
-                        <div className='image-wrapper'>
+                        <GlowCard className='image-wrapper'>
                             <img src="images/project_onecanvas.png" alt="onecanvas" />
-                        </div>
+                        </GlowCard>
                         <div className='text-content'>
                             <h2>OneCanvas Website</h2>
                             <h3>2022</h3>
@@ -46,16 +47,16 @@ const Work = () => {
                     {/*RIGHT SIDE */}
                     <div className='project-list-wrapper overflow-hidden'>
                         <div ref={project2Ref} className='project'>
-                            <div className='image-wrapper'>
+                            <GlowCard className='image-wrapper'>
                                 <img src="images/project_pitaya.png" alt="Pitaya" />
-                            </div>
+                            </GlowCard>
                             <h2>Pitaya Webshop</h2>
                             <h3>2020</h3>
                         </div>
                         <div ref={project3Ref} className='project'>
-                            <div className='image-wrapper'>
+                            <GlowCard className='image-wrapper'>
                                 <img src="images/project_case.png" alt="Case" />
-                            </div>
+                            </GlowCard>
                             <h2>ERP Case Study</h2>
                             <h3>2021</h3>
                         </div>

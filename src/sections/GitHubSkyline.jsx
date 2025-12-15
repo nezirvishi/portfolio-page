@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import GitHubSkylineCanvas from '../components/GitHubSkyline/GitHubSkylineCanvas'
+import GlowCard from '../components/GlowCard'
 
 const CARD_HEIGHT_CLASS = 'h-[300px] sm:h-[320px] md:h-[340px] lg:h-[360px]'
 
@@ -20,18 +21,6 @@ function formatDateDDMMYYYY(date, { utc = false } = {}) {
 function formatYMDDateDDMMYYYY(dateString) {
     if (!dateString) return ''
     return formatDateDDMMYYYY(new Date(`${dateString}T00:00:00.000Z`), { utc: true })
-}
-
-function updateCardGlowAngle(event) {
-    const element = event.currentTarget
-    if (!element) return
-
-    const rect = element.getBoundingClientRect()
-    const mouseX = event.clientX - rect.left - rect.width / 2
-    const mouseY = event.clientY - rect.top - rect.height / 2
-
-    const angle = (Math.atan2(mouseY, mouseX) * (180 / Math.PI) + 360) % 360
-    element.style.setProperty('--start', angle + 60)
 }
 
 const GitHubSkyline = () => {
@@ -97,12 +86,7 @@ const GitHubSkyline = () => {
 
                 <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-10 gap-10 items-stretch">
                     <div className="lg:col-span-3">
-                        <div
-                            onMouseMove={updateCardGlowAngle}
-                            className={`card card-border rounded-xl p-5 sm:p-6 flex flex-col justify-between ${CARD_HEIGHT_CLASS}`}
-                        >
-                            <div className="glow" />
-
+                        <GlowCard className={`card-border rounded-xl p-5 sm:p-6 flex flex-col justify-between ${CARD_HEIGHT_CLASS}`}>
                             <div className="space-y-3">
                                 {rows.map((row) => (
                                     <div key={row.label} className="flex items-center justify-between gap-6">
@@ -120,14 +104,10 @@ const GitHubSkyline = () => {
                             >
                                 View on GitHub
                             </a>
-                        </div>
+                        </GlowCard>
                     </div>
 
-                    <div
-                        onMouseMove={updateCardGlowAngle}
-                        className={`card card-border rounded-xl p-3 sm:p-4 lg:col-span-7 ${CARD_HEIGHT_CLASS}`}
-                    >
-                        <div className="glow" />
+                    <GlowCard className={`card-border rounded-xl p-3 sm:p-4 lg:col-span-7 ${CARD_HEIGHT_CLASS}`}>
                         <div className="w-full h-full rounded-lg overflow-hidden">
                             {errorMessage ? (
                                 <div className="w-full h-full flex items-center justify-center text-rose-300 px-5 text-center">
@@ -141,7 +121,7 @@ const GitHubSkyline = () => {
                                 </div>
                             )}
                         </div>
-                    </div>
+                    </GlowCard>
                 </div>
             </div>
         </section>

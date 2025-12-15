@@ -91,10 +91,10 @@ const Experience = () => {
                         <div className='gradient-line w-1 h-full' />
                     </div>
                     <div className='relative z-50 xl:space-y-32 space-y-10'>
-                        {expCards.map((card, index) => (
+                        {expCards.map((card) => (
                             <div key={card.title} className='exp-card-wrapper'>
                                 <div className='xl:w-2/6'>
-                                    <GlowCard card={card} index={index}>
+                                    <GlowCard card={card} className='card-border timeline-card rounded-xl p-10'>
                                     </GlowCard>
                                 </div>
                                 <div className='xl:w-4/6'>

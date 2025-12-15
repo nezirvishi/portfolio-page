@@ -1,12 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import GlowCard from '../components/GlowCard'
 
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit'
 const WEB3FORMS_CLIENT_SCRIPT = 'https://web3forms.com/client/script.js'
 const WEB3FORMS_ACCESS_KEY = '795a2265-2c27-4fbb-abf2-11b6c506990b'
 
 const Contact = () => {
-    const cardRef = useRef(null)
-
     const [status, setStatus] = useState('idle')
     const [errorMessage, setErrorMessage] = useState('')
 
@@ -27,20 +26,6 @@ const Contact = () => {
                 .forEach((hcaptchaScript) => hcaptchaScript.remove())
         }
     }, [])
-
-    const handleGlowMouseMove = (e) => {
-        const card = cardRef.current
-        if (!card) return
-
-        const rect = card.getBoundingClientRect()
-        const mouseX = e.clientX - rect.left - rect.width / 2
-        const mouseY = e.clientY - rect.top - rect.height / 2
-
-        let angle = Math.atan2(mouseY, mouseX) * (180 / Math.PI)
-        angle = (angle + 360) % 360
-
-        card.style.setProperty('--start', angle + 60)
-    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -100,8 +85,7 @@ const Contact = () => {
                 <div className="mt-12 md:mt-16 max-w-2xl mx-auto">
 
 
-                    <div ref={cardRef} onMouseMove={handleGlowMouseMove} className="card card-border rounded-xl p-5 sm:p-6 md:p-8">
-                        <div className="glow" />
+                    <GlowCard className="card-border rounded-xl p-5 sm:p-6 md:p-8">
                         <form onSubmit={handleSubmit} className="space-y-5">
                             <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
                             <div>
@@ -180,7 +164,7 @@ const Contact = () => {
                                 ) : null}
                             </div>
                         </form>
-                    </div>
+                    </GlowCard>
                 </div>
             </div>
         </section>
