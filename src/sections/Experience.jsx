@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { expCards } from '../constants'
 import GlowCard from '../components/GlowCard'
 import gsap from 'gsap'
@@ -8,8 +8,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
+    const timelineTriggerRef = useRef(null)
 
     useGSAP(() => {
+        const container = timelineTriggerRef.current
+        if (!container) return
+
         gsap.utils.toArray('.timeline-card').forEach((card) => {
             gsap.from(card, {
                 xPercent: -100,
@@ -24,20 +28,42 @@ const Experience = () => {
             })
         })
 
-        gsap.to('.timeline', {
-            transformOrigin: 'bottom bottom',
-            ease: 'power1.inOut',
-            scrollTrigger: {
-                trigger: '.timeline',
-                start: 'top center',
-                end: '70% center',
-                onUpdate: (self) => {
-                    gsap.to('.timeline', {
-                        scaleY: 1 - self.progress,
-                    })
-                }
-            }
-        })
+        const syncTimelineLine = () => {
+            const line = container.querySelector('.timeline-wrapper')
+            const logos = container.querySelectorAll('.timeline-logo')
+            if (!line || logos.length === 0) return
+
+            const containerRect = container.getBoundingClientRect()
+            const firstRect = logos[0].getBoundingClientRect()
+            const lastRect = logos[logos.length - 1].getBoundingClientRect()
+
+            const left = firstRect.left - containerRect.left + firstRect.width / 2
+            const top = firstRect.top - containerRect.top + firstRect.height / 2
+            const bottom = lastRect.top - containerRect.top + lastRect.height / 2
+
+            gsap.set(line, { left, top, height: Math.max(0, bottom - top), xPercent: -50 })
+        }
+
+        const timelineEnd = () => (window.innerWidth < 768 ? 'bottom center' : '77% center')
+
+        syncTimelineLine()
+
+        gsap.fromTo(
+            '.timeline',
+            { scaleY: 1, transformOrigin: 'bottom bottom' },
+            {
+                scaleY: 0,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: container,
+                    start: 'top center',
+                    end: timelineEnd,
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                    onRefreshInit: syncTimelineLine,
+                },
+            },
+        )
 
         gsap.utils.toArray('.expText').forEach((text) => {
             gsap.from(text, {
@@ -51,7 +77,6 @@ const Experience = () => {
                 }
             })
         })
-
     }, []);
 
     return (
@@ -60,20 +85,20 @@ const Experience = () => {
                 <div className='font-semibold md:text-5xl text-3xl text-center'>
                     Experience and Services
                 </div>
-                <div className='mt-32 relative'>
+                <div ref={timelineTriggerRef} className='mt-32 relative'>
+                    <div className='timeline-wrapper'>
+                        <div className='timeline' />
+                        <div className='gradient-line w-1 h-full' />
+                    </div>
                     <div className='relative z-50 xl:space-y-32 space-y-10'>
-                        {expCards.map((card) => (
+                        {expCards.map((card, index) => (
                             <div key={card.title} className='exp-card-wrapper'>
                                 <div className='xl:w-2/6'>
-                                    <GlowCard card={card}>
+                                    <GlowCard card={card} index={index}>
                                     </GlowCard>
                                 </div>
                                 <div className='xl:w-4/6'>
                                     <div className='flex items-start'>
-                                        <div className='timeline-wrapper'>
-                                            <div className=' timeline' />
-                                            <div className='gradient-line w-1 h-full' />
-                                        </div>
                                         <div className='expText flex xl:gap-20 md:gap-10 gap-5 relative z-20'>
                                             <div className='timeline-logo'>
                                                 <img src={card.logoPath} alt="logo" />
