@@ -14,7 +14,7 @@ const GitHubSkylineCanvas = ({ data }) => {
             camera={{ fov: 45 }}
             dpr={[1, isMobile ? 1.2 : 1.5]}
             gl={{ antialias: true, alpha: true }}
-            style={{ background: 'transparent', pointerEvents: isMobile ? 'none' : undefined }}
+            style={{ background: 'transparent', touchAction: 'none' }}
             onCreated={({ gl, camera }) => {
                 gl.setClearColor(0, 0)
                 camera.position.set(0, 0, 6)
@@ -26,6 +26,7 @@ const GitHubSkylineCanvas = ({ data }) => {
 
             <OrbitControls
                 enablePan={false}
+                enableZoom={!isMobile}
                 maxDistance={26}
                 minDistance={4}
                 enableDamping

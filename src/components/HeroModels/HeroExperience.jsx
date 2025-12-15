@@ -12,8 +12,7 @@ const HeroExperience = () => {
         <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
             <ambientLight intensity={0.2} color={"#1a1a40"} />
             <directionalLight position={[5, 5, 5]} intensity={1} />
-            {!isMobile && (
-
+            {!isTablet && (
                 <OrbitControls
                     enablePan={false}
                     enableZoom={!isTablet}
@@ -21,7 +20,6 @@ const HeroExperience = () => {
                     minDistance={0}
                     minPolarAngle={0}
                     maxPolarAngle={Math.PI - 0.05}
-
                 />
             )}
             <group
