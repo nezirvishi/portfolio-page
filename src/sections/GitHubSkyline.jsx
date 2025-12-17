@@ -30,12 +30,13 @@ const GitHubSkyline = () => {
     useEffect(() => {
         const controller = new AbortController()
         const url = `${import.meta.env.BASE_URL}data/github-skyline.json`
+        const requestUrl = `${url}?v=${Date.now()}`
 
         const loadSkyline = async () => {
             setErrorMessage('')
 
             try {
-                const response = await fetch(url, { signal: controller.signal })
+                const response = await fetch(requestUrl, { signal: controller.signal, cache: 'no-store' })
 
                 if (!response.ok) {
                     throw new Error(`Failed to load skyline data (${response.status})`)
