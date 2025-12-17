@@ -46,14 +46,14 @@ const Work = () => {
                     </div>
                     {/*RIGHT SIDE */}
                     <div className='project-list-wrapper overflow-hidden'>
-                        <div ref={project2Ref} className='project'>
+                        <div ref={project2Ref}>
                             <GlowCard className='image-wrapper'>
                                 <img src="images/project_pitaya.png" alt="Pitaya" />
                             </GlowCard>
                             <h2>Pitaya Webshop</h2>
                             <h3>2020</h3>
                         </div>
-                        <div ref={project3Ref} className='project'>
+                        <div ref={project3Ref}>
                             <GlowCard className='image-wrapper'>
                                 <img src="images/project_case.png" alt="Case" />
                             </GlowCard>
