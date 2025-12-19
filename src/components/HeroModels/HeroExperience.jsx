@@ -9,7 +9,7 @@ const HeroExperience = () => {
     const isMobile = useMediaQuery({ query: '(max-width:768px)' });
 
     return (
-        <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
+        <Canvas camera={{ position: [0, 0, 15], fov: 45 }} dpr={[1, isMobile ? 1.2 : 1.5]}>
             <ambientLight intensity={0.2} color={"#1a1a40"} />
             <directionalLight position={[5, 5, 5]} intensity={1} />
             {!isTablet && (
